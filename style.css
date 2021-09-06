@@ -1,0 +1,13 @@
+body { background: rosybrown !important; }
+#navb{
+    display: flex;
+    justify-content: space-between;
+}
+.square-box{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(193, 243, 255);
+    border-radius: 15px;
+    border: 2px solid green;
+    box-shadow: 5px 5px 10px gray;
+}
