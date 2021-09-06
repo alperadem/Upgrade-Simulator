@@ -1,13 +1,55 @@
-body { background: rosybrown !important; }
-#navb{
-    display: flex;
-    justify-content: space-between;
+body {
+    background: rosybrown !important;
+    height: 100vh;
+    font-family: 'MedievalSharp', cursive !important;
 }
-.square-box{
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 75px;
+}
+
+.square-box {
+    display: flex;
+    align-items: center;
     width: 100px;
     height: 100px;
     background-color: rgb(193, 243, 255);
     border-radius: 15px;
-    border: 2px solid green;
+    border: 3px solid rgb(59, 17, 0);
     box-shadow: 5px 5px 10px gray;
+    justify-content: center;
+    position: relative;
 }
+
+/*/// Relative to square-box from here ///*/
+
+#UPGRADEbutton {
+    position: absolute;
+    top: 120%;
+    /*  */
+    font: 16px sans-serif;
+    line-height: 1.4;
+    border-radius: 5px;
+
+}
+
+#itemDisplay {
+    font: 2rem sans-serif;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    color: goldenrod;
+}
+
+#result {
+    position: absolute;
+    left: 150%;
+}
+
+/* /////// to here /////// */
