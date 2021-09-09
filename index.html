@@ -17,11 +17,15 @@
 <body>
     <h1>THIS IS AN ANVIL</h1>
     <hr>
-    <select name="Difficulty" id="diffSelect" autocomplete="off" onchange="getDiff(this)">
-        <option value="Hard">Hard</option>
-        <option value="Medium">Medium</option>
-        <option value="Easy">Easy</option>
-    </select>
+    <div class="diff-settings">
+        <h1>difficulty</h1>
+        <select name="Difficulty" id="diffSelect" autocomplete="off" onchange="getDiff(this)">
+            <option value="Hard">Hard</option>
+            <option value="Medium">Medium</option>
+            <option value="Easy">Easy</option>
+        </select>
+        <h1 id="balls"></h1>
+    </div>
     <div class="container">
         
         <div class="square-box">
@@ -34,21 +38,14 @@
     <hr>
     <div class="container">
         <div class="row item-container" id="items">
-            <div class="col-2">
-                <div class="square-box"></div>
-            </div>
-            <div class="col-2">
-                <div class="square-box"></div>
-            </div>
-            <div class="col-2">
-                <div class="square-box"></div>
-            </div>
+            <img src="" alt="">
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="index.js"></script>
+    <script src="add-col.js"></script>
 </body>
 
 </html>

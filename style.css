@@ -1,5 +1,6 @@
 body {
-    background: rosybrown !important;
+    background: rosybrown!important;
+    background: linear-gradient(90deg, rgba(2,0,36,0.7399159492898721) 0%, rgba(188,143,143,1) 27%, rgba(0,212,255,1) 100%) !important;
     height: 100vh;
     font-family: 'MedievalSharp', cursive !important;
 }
@@ -26,38 +27,70 @@ h1 {
     justify-content: center;
     position: relative;
 }
-#diffSelect{
+.diff-settings{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    left: 30px;
+}
+
+.item-barrel {
+    justify-content: center;
+}
+
+#diffSelect {
     width: 100px;
     height: 25px;
 }
 
+#itemDisplay-2 {
+    justify-content: center;
+    font: 18px sans-serif;
+    line-height: 1.2;
+    text-decoration: none;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(139, 139, 139, 0.452);
+    color: rgb(218, 80, 0);
+    position: absolute;
+}
+#balls{
+    position: absolute;
+    top: 100%;
+    text-align: start;
+    white-space: nowrap;
+}
 /*/// Relative to square-box from here ///*/
+
 #UPGRADEbutton {
     position: absolute;
     top: 120%;
     /*  */
-    box-shadow:inset 0px 1px 0px 0px #cf866c;
-	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
-	background-color:#d0451b;
-	border-radius:3px;
-	border:1px solid #942911;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:13px;
-	padding:11px 22px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #854629;
+    box-shadow: inset 0px 1px 0px 0px #cf866c;
+    background: linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+    background-color: #d0451b;
+    border-radius: 3px;
+    border: 1px solid #942911;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 13px;
+    padding: 11px 22px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #854629;
 }
-#UPGRADEbutton:hover{
-	background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
-	background-color:#bc3315;
+
+#UPGRADEbutton:hover {
+    background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+    background-color: #bc3315;
 }
+
 #UPGRADEbutton:active {
-	position:absolute;
-	top:121%;
+    position: absolute;
+    top: 121%;
 }
+
 #itemDisplay {
     font: 2rem sans-serif;
     line-height: 1.2;
@@ -68,10 +101,12 @@ h1 {
     color: goldenrod;
     z-index: 3;
 }
-#wpn-image{
+
+#wpn-image {
     position: absolute;
     scale: 2;
 }
+
 #result {
     position: absolute;
     left: 150%;

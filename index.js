@@ -1,16 +1,11 @@
 //SETUP
 const anvilButton = document.getElementById("UPGRADEbutton");
 const selectDiff = document.getElementById("diffSelect");
+const displayJoke = document.getElementById("balls")
 const itemDisplay = document.getElementById("itemDisplay");
 let iDisplayHtml = itemDisplay.innerHTML;
 let itemStatus = 0;
 const printResult = document.getElementById("result");
-const Url = 'http://rpg-api.com/weapons';
-const getFetched = (id) => {
-    fetch(Url)
-        .then(data => { return data.json() })
-        .then(res => { return res })
-}
 const difficulty = {
     "Hard": [30, 15, 10, 5, 3],
     "Medium": [65, 45, 30, 15, 5],
@@ -23,6 +18,7 @@ let upgradeDiff = difficulty.Hard;
 const upgradeChance = (min, max) => { return Math.floor(Math.random() * (max - min)); }
 
 //SUCCESS FAILURE FUNCTIONS
+
 //Success
 const successDisplay = () => {
     printResult.style.color = "green";
@@ -58,19 +54,29 @@ const itemDegrade = () => {
     return itemStatus;
 }
 ///DIFFICULTY SETTINGS
+
 const getDiff = (selectDiff) => {
     let selectValue = selectDiff.value;
     itemStatus=0;
     if (selectValue == "Hard") {
         itemDisplay.innerHTML = "+0"
+        displayJoke.innerHTML = "Balls of steel"
+        displayJoke.style.visibility = "visible"
+        setTimeout(function () { displayJoke.style.visibility = "hidden" }, 500)
         return upgradeDiff = difficulty.Hard;
     }
     if (selectValue == "Medium") {
         itemDisplay.innerHTML = "+0"
+        displayJoke.innerHTML = "GIT GUD"
+        displayJoke.style.visibility = "visible"
+        setTimeout(function () { displayJoke.style.visibility = "hidden" }, 500)
         return upgradeDiff = difficulty.Medium;
     }
     if (selectValue == "Easy") {
         itemDisplay.innerHTML = "+0"
+        displayJoke.innerHTML = "YOU NOOB"
+        displayJoke.style.visibility = "visible"
+        setTimeout(function () { displayJoke.style.visibility = "hidden" }, 500)
         return upgradeDiff = difficulty.Easy;
     }
 }
@@ -135,8 +141,4 @@ const upgradeStatus = () => {
 
 }
 anvilButton.addEventListener("click", upgradeStatus);
-
-
-
-
 //display
