@@ -26,27 +26,52 @@ h1 {
     justify-content: center;
     position: relative;
 }
+#diffSelect{
+    width: 100px;
+    height: 25px;
+}
 
 /*/// Relative to square-box from here ///*/
-
 #UPGRADEbutton {
     position: absolute;
     top: 120%;
     /*  */
-    font: 16px sans-serif;
-    line-height: 1.4;
-    border-radius: 5px;
-
+    box-shadow:inset 0px 1px 0px 0px #cf866c;
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	background-color:#d0451b;
+	border-radius:3px;
+	border:1px solid #942911;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:11px 22px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #854629;
 }
-
+#UPGRADEbutton:hover{
+	background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+	background-color:#bc3315;
+}
+#UPGRADEbutton:active {
+	position:absolute;
+	top:121%;
+}
 #itemDisplay {
     font: 2rem sans-serif;
     line-height: 1.2;
     text-align: center;
     text-decoration: none;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(0, 255, 13, 0.452);
     color: goldenrod;
+    z-index: 3;
 }
-
+#wpn-image{
+    position: absolute;
+    scale: 2;
+}
 #result {
     position: absolute;
     left: 150%;

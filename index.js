@@ -1,14 +1,26 @@
 //SETUP
 const anvilButton = document.getElementById("UPGRADEbutton");
+const selectDiff = document.getElementById("diffSelect");
 const itemDisplay = document.getElementById("itemDisplay");
 let iDisplayHtml = itemDisplay.innerHTML;
 let itemStatus = 0;
 const printResult = document.getElementById("result");
+const Url = 'http://rpg-api.com/weapons';
+const getFetched = (id) => {
+    fetch(Url)
+        .then(data => { return data.json() })
+        .then(res => { return res })
+}
+const difficulty = {
+    "Hard": [30, 15, 10, 5, 3],
+    "Medium": [65, 45, 30, 15, 5],
+    "Easy": [100, 80, 60, 50, 35]
+}
+let upgradeDiff = difficulty.Hard;
 //CODE
 
 //RandomNumberGenerator
 const upgradeChance = (min, max) => { return Math.floor(Math.random() * (max - min)); }
-let chanceOfSuccess = upgradeChance(0, 100);
 
 //SUCCESS FAILURE FUNCTIONS
 //Success
@@ -18,6 +30,12 @@ const successDisplay = () => {
     printResult.innerHTML = "SUCCESS"
     setTimeout(function () { printResult.style.visibility = "hidden" }, 1000)
 };
+const successMaxed = () => {
+    printResult.style.color = "green";
+    printResult.style.visibility = "visible";
+    printResult.innerHTML = "This item is MAXED"
+    setTimeout(function () { printResult.style.visibility = "hidden" }, 1000)
+}
 const itemGrade = () => {
     itemStatus++;
     iDisplayHtml = "+" + itemStatus;
@@ -39,15 +57,29 @@ const itemDegrade = () => {
     failureDisplay();
     return itemStatus;
 }
-
+///DIFFICULTY SETTINGS
+const getDiff = (selectDiff) => {
+    let selectValue = selectDiff.value;
+    itemStatus=0;
+    if (selectValue == "Hard") {
+        itemDisplay.innerHTML = "+0"
+        return upgradeDiff = difficulty.Hard;
+    }
+    if (selectValue == "Medium") {
+        itemDisplay.innerHTML = "+0"
+        return upgradeDiff = difficulty.Medium;
+    }
+    if (selectValue == "Easy") {
+        itemDisplay.innerHTML = "+0"
+        return upgradeDiff = difficulty.Easy;
+    }
+}
 
 //BUTTON FUNCTIONS
-
-
 const upgradeStatus = () => {
     let chanceOfSuccess = upgradeChance(0, 100);
     if (itemStatus < 5) {
-        if (chanceOfSuccess < 30) {
+        if (chanceOfSuccess < upgradeDiff[0]) {
             //ADD PRINT SUCCESS CODE TO SCREEN IN THIS LINE / / / / / /
             successDisplay();
             return itemGrade();
@@ -59,7 +91,7 @@ const upgradeStatus = () => {
         }
     }
     else if (itemStatus < 6) {
-        if (chanceOfSuccess < 15) {
+        if (chanceOfSuccess < upgradeDiff[1]) {
             //SUCCESS
             return itemGrade();
         }
@@ -69,7 +101,7 @@ const upgradeStatus = () => {
         }
     }
     else if (itemStatus < 7) {
-        if (chanceOfSuccess < 10) {
+        if (chanceOfSuccess < upgradeDiff[2]) {
             //SUCCESS
             return itemGrade();
         }
@@ -79,7 +111,7 @@ const upgradeStatus = () => {
         }
     }
     else if (itemStatus < 8) {
-        if (chanceOfSuccess < 5) {
+        if (chanceOfSuccess < upgradeDiff[3]) {
             //SUCCESS
             return itemGrade();
         }
@@ -89,7 +121,7 @@ const upgradeStatus = () => {
         }
     }
     else if (itemStatus < 9) {
-        if (chanceOfSuccess < 3) {
+        if (chanceOfSuccess < upgradeDiff[4]) {
             //SUCCESS
             return itemGrade();
         }
@@ -97,11 +129,14 @@ const upgradeStatus = () => {
             //FAILURE
             return itemDegrade();
         }
+    } else if (itemStatus >= 9) {
+        return successMaxed();
     }
 
 }
 anvilButton.addEventListener("click", upgradeStatus);
 
 
+
+
 //display
-console.log(iDisplayHtml)
